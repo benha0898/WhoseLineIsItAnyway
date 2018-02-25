@@ -27,6 +27,9 @@ public class RatingCollector {
         ratings.add(rate);
         update();
     }
+    public Rating getRating(int index) {
+        return ratings.get(index);
+    }
     private void update() {
         getAvgProf();
         getAvgQuality();
