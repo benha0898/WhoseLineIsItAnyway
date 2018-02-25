@@ -17,11 +17,22 @@ public class RatingCollector {
 
     private void updateAvg() {
         double reviewSum = 0.0;
+        double avgQuality = 0.0;
+        double avgTTC = 0.0;
+        double avgProf = 0.0;
+
         for (int i = 0; i < ratings.size(); i ++) {
             reviewSum += ratings.get(i).getAggRating();
+            avgQuality += ratings.get(i).getQualityRating();
+            avgTTC += ratings.get(i).getTTCRating();
+            avgProf += ratings.get(i).getProfRating();
         }
         reviewSum = reviewSum / ratings.size();
         avgRating = (int) reviewSum;
+        this.avgQuality = (int) (avgQuality / ratings.size());
+        this.avgTTC = (int) (avgTTC / ratings.size());
+        this.avgProf = (int) (avgProf / ratings.size());
+
     }
     public void addRating(Rating rate) {
         ratings.add(rate);
@@ -36,34 +47,37 @@ public class RatingCollector {
         getAvgTTC();
         updateAvg();
     }
-    public void getAvgTTC() {
+    public int getAvgTTC() {
         double reviewSum = 0.0;
         for (int i = 0; i < ratings.size(); i ++) {
             reviewSum += ratings.get(i).getTTCRating();
         }
         reviewSum = reviewSum / ratings.size();
         avgTTC = (int) reviewSum;
+        return avgTTC;
     }
 
-    public void getAvgProf() {
+    public int getAvgProf() {
         double reviewSum = 0.0;
         for (int i = 0; i < ratings.size(); i ++) {
             reviewSum += ratings.get(i).getProfRating();
         }
         reviewSum = reviewSum / ratings.size();
         avgProf = (int) reviewSum;
+        return avgProf;
     }
 
-    public void getAvgQuality() {
+    public int getAvgQuality() {
         double reviewSum = 0.0;
         for (int i = 0; i < ratings.size(); i ++) {
             reviewSum += ratings.get(i).getQualityRating();
         }
         reviewSum = reviewSum / ratings.size();
         avgQuality = (int) reviewSum;
+        return avgQuality;
     }
 
-    public int reviewCount() {
+    public int getRatingCount() {
         return ratings.size();
     }
 
