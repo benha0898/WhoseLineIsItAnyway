@@ -1,4 +1,4 @@
-/**
+package ca.ualberta.cs.w18t11.whoselineisitanyway; /**
  * RatingCollector is designed to hold and manage overall ratings for any particular user
  * @author Lucas Thalen
  * @version 0.1
